@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lots of Mary - Oracle</title>
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="Rating" content="general" />
+    <meta name="DESCRIPTION" content="Consult the Gospel of the Lots of Mary for divine guidance and spiritual wisdom. Ask your questions and receive sacred answers from this ancient Christian divination text with 37 traditional responses for spiritual direction." />
+    <meta name="KEYWORDS" content="Lots of Mary, Gospel of Mary, Marian divination, Christian oracle, sacred lots, religious divination, spiritual guidance, Mary oracle, Christian mysticism, devotional tool" />
+    <meta name="author" content="Radius.Center" />
+    <meta name="distribution" content="Global" />
+    <meta name="robots" content="FOLLOW,INDEX" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://radius.center/lots-of-mary/lots-of-mary.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Lots of Mary - Marian Devotional Divination Tool">
+    <meta property="og:description" content="Seek divine guidance through the Gospel of the Lots of Mary with sacred answers for spiritual questions">
+    <meta property="og:url" content="https://radius.center/lots-of-mary/lots-of-mary.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Radius.Center">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lots of Mary - Christian Divination Oracle">
+    <meta name="twitter:description" content="Ancient Christian divination tool with sacred guidance from the Gospel of Mary">
+    
+    <!-- Language and Hreflang -->
+    <meta name="language" content="en">
+    <link rel="alternate" hreflang="en" href="https://radius.center/lots-of-mary/lots-of-mary.html">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gospel of the Lots of Mary Oracle",
+      "description": "Christian divination tool based on the ancient Gospel of the Lots of Mary for spiritual guidance",
+      "url": "https://radius.center/lots-of-mary/lots-of-mary.html",
+      "applicationCategory": "Entertainment",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Radius.Center",
+        "url": "https://radius.center"
+      },
+      "keywords": ["Lots of Mary", "Christian divination", "Gospel of Mary", "religious oracle", "spiritual guidance"],
+      "genre": ["Religious Studies", "Christian Mysticism", "Divination"]
+    }
+    </script>
+    
+    <link rel="SHORTCUT ICON" href="favicon.ico" />
+	<style>
+	    body {
+	        transition: background-color 0.3s, color 0.3s;
+	        margin: 0;
+	        padding: 0;
+	        min-height: 100vh;
+	        display: flex;
+	        flex-direction: column;
+	    }
+	    .hidden-title {
+		    display: none;
+		}
+		#questionForm {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: 30px;
+			padding-bottom: 20px;
+		}
+		
+		#questionInput {
+			height: 30px;
+			font-size: 16px;
+			padding: 5px;
+			margin-bottom: 20px;
+		}
+		
+		#tossButton {
+			height: 40px;
+			font-size: 18px;
+			padding: 5px;
+			margin-bottom: 20px;
+		}
+		
+		#answerAontainer {
+			margin-bottom: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		#resetButton {
+			height: 30px;
+			font-size: 16px;
+			padding: 5px;
+		}
+		
+		#results-wrapper {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+		}
+		
+		#result {
+			margin: 10px 0;
+		}
+		
+		.question-display {
+			text-align: center;
+			font-style: italic;
+			color: #888;
+			margin-bottom: 20px;
+			font-size: 18px;
+		}
+		
+		.parchment-container {
+			position: relative;
+			background-image: url('parchment.png');
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			background-position: center;
+			height: 250px;
+			width: 600px;
+			max-width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 40px 30px;
+			margin: 0 auto;
+			box-sizing: border-box;
+		}
+		
+		.answer-content {
+			text-align: center;
+			color: #2c1810;
+			z-index: 1;
+			max-width: 90%;
+		}
+		
+		.answer-content h3 {
+			margin-bottom: 15px;
+			color: #1a0f08;
+		}
+		
+		.answer-content p {
+			line-height: 1.6;
+			font-size: 16px;
+		}
+		
+		.dark-mode .question-display {
+			color: #aaa;
+		}
+		.dark-mode input,
+		.dark-mode button {
+			background-color: #444;
+			color: white;
+			border-color: #555;
+		}
+		.toggle-switch {
+            position: absolute;
+            top: 20px;
+            right: 90px;
+        }
+        .toggle-switch input {
+            display: none;
+        }
+        .toggle-switch label {
+            cursor: pointer;
+            width: 50px;
+            height: 25px;
+            background: #ccc;
+            display: block;
+            border-radius: 25px;
+            position: relative;
+        }
+        .toggle-switch label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 21px;
+            height: 21px;
+            background: #fff;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .toggle-switch input:checked + label {
+            background: #5555ff;
+        }
+        .toggle-switch input:checked + label:after {
+            left: calc(100% - 2px);
+            transform: translateX(-100%);
+        }
+        .help-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 27px;
+            font-size: 18px;
+            padding: 5px 15px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .help-btn:hover {
+            background-color: #e0e0e0;
+        }
+        .dark-mode .help-btn {
+            background-color: #444;
+            color: white;
+            border: 1px solid #555;
+            border-top: 2px solid #666;
+            border-left: 2px solid #666;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+	</style>
+</head>
+<body>
+    <div class="toggle-switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <label for="dark-mode-toggle"></label>
+    </div>
+    <a href="help.html" class="help-btn" title="Help Documentation" aria-label="Help Documentation">?</a>
+<div class="hidden-title"><center><h1>The Gospel of the Lots of Mary</h1></center></p></div>
+    <form id="questionForm">
+        <input type="text" id="questionInput" name="question" placeholder="Enter your question here..." autofocus>
+        <button type="submit" id="tossButton" >Answer</button>
+        <div id="answer-container"></div>
+        <button type="reset" id="resetButton" onclick="location.reload()">Reset</button></p></p></p>
+    </form>
+
+    <div id="results-wrapper">
+        <div id="result" class="result" align="center"></div>
+    </div>
+    <script>
+        const questionForm = document.getElementById('questionForm');
+        const questionInput = document.getElementById('questionInput');
+        const resultDiv = document.getElementById('result');
+
+        questionForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const question = questionInput.value;
+            const randomItem = getRandomItem();
+            resultDiv.innerHTML = `
+                <div class="question-display">${question}?</div>
+                <div class="parchment-container">
+                    <div class="answer-content">
+                        <h3>${randomItem.title}</h3>
+                        <p><i>${randomItem.description}</i></p>
+                    </div>
+                </div>
+            `;
+            questionInput.value = '';
+        });
+
+        function getRandomItem() {
+            const items = [
+				{ title: '#1', image: '', value: '', combination: '', description: 'Humans with their tongues they love you greatly, but their heart is far from you.  And you know what happened to you before today, that you almost lost your life.  In any case they certainly lie in wait for you.  ' },
+				{ title: '#2', image: '', value: '', combination: '', description: 'Be happy, rejoice, be glad and glorify God for what has happened to you.  Because it was only a little while ago that you were far from home, then you suffered loss and were in disgrace and danger.  But God took pity on you.  ' },
+				{ title: '#3', image: '', value: '', combination: '', description: 'Behold, you have been saved, do not (re)tum to commit sin, so that even worse matters do not happen to you.  Do you not remember what happened to you before today?  And God saved you from everything.  Do not (re)tum to this matter.  ' },
+				{ title: '#4', image: '', value: '', combination: '', description: 'It is you alone who brings upon yourself a great, difficult burden.  This matter you want to do, its time has not yet come.  Endure a short time/a little longer and you will see the confidence in God that will reach you. ' },
+				{ title: '#5', image: '', value: '', combination: '', description: 'They will trust you in this matter.  Be brave and endure, for time is hastening for you.  Do not be distressed nor despair nor grieve, because you have a strong hope through God.  ' },
+				{ title: '#6', image: '', value: '', combination: '', description: 'The Lord God has heard your request and he will send his angel and he will walk before you.  And you will see the confidence in God that will reach you.  Only do not become careless, (saying) this matter will not happen.  Yes, it will happen.  ' },
+				{ title: '#7', image: '', value: '', combination: '', description: 'You know, o human, that you did your utmost again.  You did not gain anything but loss, dispute, and war.  But if you are patient a little, the matter will prosper through the God of Abraham, Isaac, and Jacob.  ' },
+				{ title: '#8', image: '', value: '', combination: '', description: 'Fight for yourself in what has happened to you because it is a human evil.  Your enemies are not far from you.  They have plotted against you again due to the evil that is in their hearts.  But trust in God and walk in his commandments forever.  ' },
+				{ title: '#9', image: '', value: '', combination: '', description: 'Get up and go immediately.  Do not delay.  For this is the moment that God appointed for you.  They have simply accused you to (the point of) death but be patient just a little.  ' },
+				{ title: '#10', image: '', value: '', combination: '', description: 'The peace of God will be with you, and you will be saved from the affliction that has come upon you.  Fulfill what you promised because God does not tempt anyone. It is you only who are disobedient.  ' },
+				{ title: '#11', image: '', value: '', combination: '', description: 'If you decide to do this matter, do it.  Do not be careless, because God established the matter.  It is you only who turns back.  No, there is no evil that shall reach you. Trust in God and do not be of two minds.  ' },
+				{ title: '#12', image: '', value: '', combination: '', description: 'Do not let go of the faith in your heart.  You have God as helper.  He will guide you on the path on which you will go.  At all events, do not doubt because nothing is impossible for God.  '},
+				{ title: '#13', image: '', value: '', combination: '', description: 'Do not think therefore about strength, O human.  You will not be victorious now.  You will endure great suffering because the difficult time has not yet passed by for you now. Do not trust the words of vain people.  ' },
+				{ title: '#14', image: '', value: '', combination: '', description: 'They will trust you and you will be victorious in this matter.  Strengthen your heart.  This matter is from God.  Fear not.  As for you, everything you will do, God is with you.  ' },
+				{ title: '#15', image: '', value: '', combination: '', description: 'Human, bear everything and give thanks with a thought of God.  Because it is Gods hand that was upon you.  Do not doubt in your heart nor walk in the counsels of vain people.  ' },
+				{ title: '#16', image: '', value: '', combination: '', description: 'Remember that you were close to death another time in the affliction that has come upon you.  Because you were in your former matters, while your enemies counseled you and you thought they loved you.  You will understand my words.  Turn away from these people.  ' },
+				{ title: '#17', image: '', value: '', combination: '', description: 'The peace of God will be with you in all your days.  And you will rejoice, and a large harvest will be yours in the year.  And you will rejoice in the works of your hands because the angel of the Lord will walk before you.  ' },
+				{ title: '#18', image: '', value: '', combination: '', description: 'It is the king of heaven and earth and the God of all flesh who fights for you (pl.).  He will make you conquer your enemies, for God has received your request about all the difficulties that you endured.  They are a concern for God.  ' },
+				{ title: '#19', image: '', value: '', combination: '', description: 'This is a victory from God. But be patient and endure until the time comes and you receive the hope of your salvation.  The crown is ready for you, but they oppose you, do not be led astray by people.  ' },
+				{ title: '#20', image: '', value: '', combination: '', description: 'A little longer and you will receive the fulfillment of your life. For the Lord is your mediator. Endure, and you will receive the hope of your salvation, because the power of God is greater than that of humans. And they will marvel at you.  ' },
+				{ title: '#21', image: '', value: '', combination: '', description: 'Behold, the difficult time passed for you.  Behold, the hour of rest has come upon you.  Simply be brave.  You will see the confidence in God that will reach you.  And he will send the angel of peace and he will guide you and give you rest.  ' },
+				{ title: '#22', image: '', value: '', combination: '', description: 'Just as another time, they beguile you.  Do not let them finish robbing you, so that you die violently on account of your disobedience, because you were careless.  ' },
+				{ title: '#23', image: '', value: '', combination: '', description: 'I marvel at you, o human since it is not (in) your power.  You will be afflicted.  Your hope left you another time.  Without the fear of God, you would not be saved from the wrath that has come upon you.  ' },
+				{ title: '#24', image: '', value: '', combination: '', description: 'Stop being of two minds, O human, whether this thing will happen or not.  Yes, it will happen!  Be brave and do not be of two minds.  Because it will remain with you a long time and you will receive joy and happiness.  ' },
+				{ title: '#25', image: '', value: '', combination: '', description: 'Go, make your vows.  And what you promised, fulfill it immediately.  Do not be of two minds, because God is merciful.  It is he who will bring about your request for you and do away with the affliction in your heart.  ' },
+				{ title: '#26', image: '', value: '', combination: '', description: 'Get up and help yourself because the hour of necessity has come.  Why are you sitting down?  They will summon you without your knowledge.  Do not think that you will avoid the danger that is upon you.  But go and pray to God immediately.  ' },
+				{ title: '#27', image: '', value: '', combination: '', description: 'Trust in the help of the Most-High and call upon his name with your whole heart.  And he will send his good angel and he will lead you.  Do not fear those who will kill your bodies without having more than this to do to you (pl.)  ' },
+				{ title: '#28', image: '', value: '', combination: '', description: 'Be brave in everything because your concern is over nothing.  The Lord will help you with his right hand.  He will send Michael, his angel, and he will help you.  And you will conquer those who fight with you, and he will humble your enemies before you.  ' },
+				{ title: '#29', image: '', value: '', combination: '', description: 'Go away quickly.  Do not stop to reflect "What have I done?  These things have caught up to me."  But be patient for a little while until God solves the matter.  Only believe in God with all your heart.  And you will see what will happen in the end.  ' },
+				{ title: '#30', image: '', value: '', combination: '', description: 'No evil will reach you in this matter, nor sorrow nor harm, because the Lord Jesus fights on your behalf.  You will find joy and be happy even in your short lifespan.  Trust in God and do not be of two minds.  ' },
+				{ title: '#31', image: '', value: '', combination: '', description: 'Walk and go immediately.  Do not delay.  Because it is God who fights for you.  He will cause your enemies to be subject to you.  If you are patient for a little, you will receive the hope of your salvation and you will be at rest.  ' },
+				{ title: '#32', image: '', value: '', combination: '', description: 'Make haste because, behold, the time has come, your heart will be happy.  Go forward because the matter is appointed for you by God.  He will prepare for you a good path, and you will be saved from the affliction that has come upon you.  ' },
+				{ title: '#33', image: '', value: '', combination: '', description: 'Do not follow your hearts desire nor pursue fulfillment.  Do not trust the words of people, because you did everything in your power another time without being able to secure the matter.  But it is you alone who turns back.  ' },
+				{ title: '#34', image: '', value: '', combination: '', description: 'Go forward immediately.  This is a thing from God.  You know that, behold, for many days you are suffering greatly.  But it is of no concern to you because you have come to the haven of victory.  ' },
+				{ title: '#35', image: '', value: '', combination: '', description: 'You will not be able to believe them, nor will you be able to have confidence in their speech.  These people are deceivers and traitors.  Turn away from them, because they beguiled you another time, with other (people).  ' },
+				{ title: '#36', image: '', value: '', combination: '', description: 'Human, look, what did you do?  Examine yourself alone.  For verily, a great transgression is in you. It isnt in your power to oppose the hand of God, is it?  But go and glorify God.  ' },
+				{ title: '#37', image: '', value: '', combination: '', description: 'This is the day that God has prepared that peace and joy be in it.  Because Christ Jesus will give you a good fruit (or: harvest) and a prosperous life.  ' },
+			];
+
+            const randomIndex = Math.floor(Math.random() * items.length);
+            return items[randomIndex];
+        }
+        
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+        
+        // Apply saved dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+    </script>
+
+<!--Section added for more control over the alignment of the displayed results-->
+<div id="answer-container">
+	<div id="answer-content" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+	</div>
+</div>
+
+</body>
+</html>
